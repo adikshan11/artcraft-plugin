@@ -18,8 +18,8 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#f6f1e7" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#121316" />
     <link rel="canonical" href="{{ site_url }}" />
     <link rel="icon" href="{{ url_for('static', filename='bridgecraft.svg') }}" type="image/svg+xml" />
     <link rel="icon" href="{{ url_for('static', filename='bridgecraft-32.png') }}" type="image/png" sizes="32x32" />
@@ -30,13 +30,26 @@
 {% include "_theme.html" %}
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   </head>
-  <body>
+  <body class="has-rail">
 {% include "_nav.html" %}
+    <nav class="rail" aria-label="On this page">
+      <a class="rail-title" href="#top">BridgeCraft</a>
+      <ol class="rail-links">
+        {% for id, name in [("examples", "Examples"), ("apps", "Apps"), ("limits", "Limits"), ("about", "About"), ("setup", "Set it up")] %}
+        <li><a href="#{{ id }}" style="--pos: {{ 12 + loop.index0 * 20 }}%">{{ name }}</a></li>
+        {% endfor %}
+      </ol>
+      <div class="rail-ruler" aria-hidden="true">
+        {% for n in range(0, 101, 10) %}<span style="--n: {{ n }}">{{ n }}</span>{% endfor %}
+        <i class="rail-view"></i>
+      </div>
+    </nav>
 
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <h1>Use Craft apps from AI apps</h1>
+          <p class="hero-mark"><span class="badge">MCP</span><span class="wordmark">Bridge<span class="craft">Craft</span></span></p>
+          <h1>Use <span class="hl">Craft apps</span> from AI apps</h1>
           <p class="ai-apps" aria-label="Works with ChatGPT, Claude, Gemini, Cursor and more">
             <span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Cursor</span><span>and more</span>
           </p>
@@ -47,7 +60,11 @@
           </p>
           <div class="actions">
             <a class="button button-dark" href="#setup">Set it up</a>
-            <a class="link-plain" href="#examples">See what it makes</a>
+            <a class="button" href="#examples">See what it makes</a>
+            <a class="button" href="{{ project_url }}" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.67.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+              View on GitHub
+            </a>
           </div>
         </div>
 
