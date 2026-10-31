@@ -642,14 +642,59 @@ options (`mcp_args`) to the manifest.
 Locally, without OAuth, set `STUDIO_DEV_USER=yourname` to act as one user; files
 go to `.studio-storage/`. This bypass is disabled on Render.
 
+### Install it in other apps
+
+Every app below connects to the same hosted address,
+`https://artcraft-storytold-mcp.onrender.com/studio`, and asks you to sign in
+the first time.
+
+- **Claude Code**, from this repository's plugin marketplace
+  ([`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json)):
+
+  ```bash
+  claude plugin marketplace add adikshan11/artcraft-plugin
+  claude plugin install bridgecraft@bridgecraft
+  ```
+
+  Without the marketplace:
+  `claude mcp add --transport http bridgecraft https://artcraft-storytold-mcp.onrender.com/studio`.
+- **Cursor:** the "Add to Cursor" link on the website's setup section, or add
+  `{"url": "https://artcraft-storytold-mcp.onrender.com/studio"}` under
+  `mcpServers.bridgecraft` in `~/.cursor/mcp.json`.
+- **VS Code:**
+
+  ```bash
+  code --add-mcp '{"name":"bridgecraft","type":"http","url":"https://artcraft-storytold-mcp.onrender.com/studio"}'
+  ```
+
+- **Claude and ChatGPT (web, desktop and phone):** add a custom connector with
+  the address, as on the website. They show it in their own directories only
+  after the submissions below are approved.
+
 ### Publishing publicly
 
-The ChatGPT listing's **Website**, icon, and "Developer mode" label come from
-the app submission, not from this server. Submit the `/studio` URL through the
-OpenAI Platform's app submission flow with a verified developer identity,
-privacy policy, terms, support contact, icon, and test credentials; it is
-public only after review approval. Claude's connector directory has its own
-submission form.
+These listings each need a submission from the account that owns them, so they
+are not done by the code in this repository.
+
+1. **Official MCP Registry** (read by VS Code, GitHub, and other clients that
+   browse servers). [`server.json`](server.json) describes the hosted server as
+   `io.github.adikshan11/bridgecraft`. Install
+   [`mcp-publisher`](https://github.com/modelcontextprotocol/registry), then from
+   this folder run `mcp-publisher login github` and `mcp-publisher publish`.
+   GitHub sign-in proves ownership of the `io.github.adikshan11/` name. Raise
+   `version` in `server.json` before each later publish.
+2. **Claude connectors directory:** submit the `/studio` address with the
+   privacy policy, terms, support page, icon, and a test account through
+   Anthropic's connector directory submission form.
+3. **ChatGPT apps directory:** the listing's **Website**, icon, and "Developer
+   mode" label come from the app submission, not from this server. Submit the
+   `/studio` URL through the OpenAI Platform's app submission flow with a
+   verified developer identity, privacy policy, terms, support contact, icon,
+   and test credentials. It is public only after review approval.
+
+The directories list it as BridgeCraft, a community project. If Storytold
+adopts it ([RFC-0016](https://github.com/storytold/craft-contrib/pull/23)), it
+can be listed under ArtCraft's name with ArtCraft sign-in instead.
 
 ## License and credit
 
