@@ -438,8 +438,8 @@ h2 em {
   filter: grayscale(1);
 }
 
-/* The tern's tile is the plate's own yellow, so on the plate it has no edge or shadow. */
-.plate .flip-face:not(.flip-back) {
+/* Both sides of the flip are the plate's own yellow, so on the plate they have no edge or shadow. */
+.plate .flip-face {
   border-radius: 0;
   box-shadow: none;
 }
