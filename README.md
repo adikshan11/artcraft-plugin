@@ -632,7 +632,7 @@ options (`mcp_args`) to the manifest.
    `STUDIO_FILE_RETENTION_DAYS` (default 7) itself, at startup and every hour;
    a bucket lifecycle rule with the same age is a good backstop.
 3. **Render.** The service builds from `Dockerfile` (includes FFmpeg). Set
-   `OAUTH_ISSUER` (e.g. `https://<tenant>.us.auth0.com/` — exact, including the
+   `OAUTH_ISSUER` (e.g. `https://<tenant>.us.auth0.com/`; it must match exactly, including the
    trailing slash), `OAUTH_AUDIENCE` (the API identifier above), and the storage
    variables in the dashboard. Long videos need more than the free plan's
    512 MB of memory.
@@ -675,8 +675,7 @@ the first time.
 
 ### Publishing publicly
 
-These listings each need a submission from the account that owns them, so they
-are not done by the code in this repository.
+Each listing is submitted from the publisher's own account.
 
 1. **Official MCP Registry** (read by VS Code, GitHub, and other clients that
    browse servers). [`server.json`](server.json) describes the hosted server as
