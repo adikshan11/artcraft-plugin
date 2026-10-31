@@ -62,12 +62,12 @@ a:focus-visible {
 }
 
 .brand-sub {
-  margin-left: 3px;
+  margin-left: 5px;
   font-size: 0.62em;
   font-weight: 560;
   letter-spacing: 0;
   opacity: 0.7;
-  vertical-align: -0.3em;
+  vertical-align: baseline;
 }
 
 .brand img {
