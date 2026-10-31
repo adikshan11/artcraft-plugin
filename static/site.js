@@ -82,15 +82,17 @@ flip?.addEventListener("click", () => {
   flip.setAttribute("aria-pressed", String(flip.getAttribute("aria-pressed") !== "true"));
 });
 
-for (const button of document.querySelectorAll("[data-copy]")) {
+// data-copy names an element whose text to copy; data-copy-text is the text itself.
+for (const button of document.querySelectorAll("[data-copy], [data-copy-text]")) {
+  const label = button.innerHTML;
   button.addEventListener("click", async () => {
-    const text = document.getElementById(button.dataset.copy).textContent.trim();
+    const text = button.dataset.copyText ?? document.getElementById(button.dataset.copy).textContent.trim();
     try {
       await navigator.clipboard.writeText(text);
       button.textContent = "Copied";
     } catch {
       button.textContent = "Select and copy";
     }
-    setTimeout(() => (button.textContent = "Copy"), 1800);
+    setTimeout(() => (button.innerHTML = label), 1800);
   });
 }

@@ -447,7 +447,8 @@ h2 em {
   gap: clamp(32px, 5vw, 72px);
   max-width: calc(var(--page) + 2 * var(--gutter));
   margin: 0 auto;
-  padding: 80px var(--gutter) 96px;
+  padding: 0 var(--gutter) 96px;
+  border-inline: 1px solid var(--line);
 }
 
 .hero-copy {
@@ -480,7 +481,7 @@ h2 em {
 }
 
 .wordmark .craft,
-.hero h1 .hl {
+.hl {
   color: var(--craft);
 }
 
@@ -541,6 +542,41 @@ h2 em {
   align-items: center;
   gap: 16px 28px;
   margin-top: 4px;
+}
+
+.share {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--line);
+  font: 600 11px/1 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.share > * {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 0;
+  border-left: 1px solid var(--line);
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.share > span {
+  border-left: 0;
+  color: var(--muted);
+  cursor: default;
+}
+
+.share a:hover,
+.share button:hover {
+  background: var(--paper-2);
 }
 
 .link-plain {
@@ -722,13 +758,35 @@ h2 em {
   gap: 56px;
   max-width: calc(var(--page) + 2 * var(--gutter));
   margin: 0 auto;
-  padding: 120px var(--gutter);
-  border-top: 1px solid var(--line);
+  padding: 0 var(--gutter) 120px;
+  border: 1px solid var(--line);
+  border-bottom: 0;
 }
 
-.hero + .section {
-  border-top: 0;
-  padding-top: 40px;
+/* The bar across the top of each part of the page: its number and name on the
+   left, a short note on the right, like the Craft apps' pages. */
+.section-bar {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 24px;
+  margin: 0 calc(-1 * var(--gutter)) 32px;
+  padding: 15px var(--gutter);
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font: 500 11px/1.4 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-bar span:first-child {
+  color: var(--ink);
+}
+
+.section-bar b {
+  color: var(--muted);
+  font-weight: 500;
 }
 
 .section-head {
@@ -752,8 +810,7 @@ h2 em {
 }
 
 /* Full-bleed bands keep their content on the page grid. */
-.section-dark,
-.section-accent {
+.section-dark {
   max-width: none;
   padding-inline: max(var(--gutter), calc((100% - var(--page)) / 2));
   border-top: 0;
@@ -771,7 +828,6 @@ h2 em {
 
 .section-accent {
   background: var(--paper-2);
-  border-top: 1px solid var(--line);
 }
 
 /* Examples */
@@ -847,6 +903,77 @@ h2 em {
 }
 
 /* Heading on the left, text on the right: limits, privacy and about. */
+
+.cells {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+  counter-reset: cell;
+}
+
+.cells li {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding: 64px 40px 48px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  counter-increment: cell;
+}
+
+.cells li:nth-child(3n) {
+  border-right: 0;
+}
+
+/* Five cells: the last one fills the rest of its row. */
+.cells li:last-child:nth-child(3n + 2) {
+  grid-column: span 2;
+  border-right: 0;
+}
+
+.cells li::before {
+  content: counter(cell, decimal-leading-zero);
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  color: var(--muted);
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.1em;
+}
+
+.cells h3 {
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.cells p {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.cells a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 960px) {
+  .cells {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cells li,
+  .cells li:last-child:nth-child(3n + 2) {
+    grid-column: auto;
+    padding: 48px var(--gutter) 36px;
+    border-right: 0;
+  }
+}
 
 .two-col {
   display: grid;
@@ -1467,7 +1594,7 @@ a.status-name:hover {
 
   .hero {
     gap: 40px;
-    padding-block: 40px 64px;
+    padding-block: 0 64px;
   }
 
   .plate figcaption {
@@ -1501,7 +1628,7 @@ a.status-name:hover {
 
   .section {
     gap: 40px;
-    padding-block: 80px;
+    padding-block: 0 80px;
   }
 
   .app-cell {
