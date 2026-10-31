@@ -364,14 +364,14 @@ h2 em {
   justify-items: center;
   gap: 4cqi;
   padding: 8cqi;
-  background: #111110;
-  color: #f6f1e7;
+  background: #f6f1e7;
+  color: #111110;
   text-align: center;
   transform: rotateY(180deg);
 }
 
 .flip-back .label {
-  color: var(--accent);
+  color: #5f5a50;
   font-size: max(10px, 4cqi);
 }
 
@@ -390,19 +390,21 @@ h2 em {
   height: auto;
   margin-bottom: 2cqi;
   padding: 6cqi 5cqi;
+  border: 1px solid #d9cfbc;
   border-radius: 6cqi;
   background: #ffffff;
+  box-shadow: 0 2cqi 5cqi rgba(17, 17, 16, 0.1);
 }
 
 .flip-note {
   margin-top: 4cqi;
   padding-top: 4cqi;
-  border-top: 1px solid rgba(246, 241, 231, 0.25);
+  border-top: 1px solid #d9cfbc;
   font-family: var(--mono);
   font-size: max(9px, 3.6cqi);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.75;
+  color: #5f5a50;
 }
 
 .plate figcaption {
