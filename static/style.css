@@ -1067,7 +1067,7 @@ h2 em {
 
   .plate {
     justify-self: center;
-    width: min(100%, 520px);
+    width: min(100%, 380px);
   }
 }
 
