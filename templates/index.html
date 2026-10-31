@@ -69,14 +69,14 @@
             </li>
             {% endfor %}
           </ul>
-          <button class="flip" type="button" aria-pressed="false" aria-label="BridgeCraft logo, an Arctic tern whose wings arch over the water. Flip it to see what BridgeCraft is built for.">
+          <button class="flip" type="button" aria-pressed="false" aria-label="BridgeCraft logo, an Arctic tern whose wings arch over the water. Flip it to see the ArtCraft logo: BridgeCraft is built for ArtCraft.">
             <span class="flip-inner">
               <img class="flip-face" src="{{ url_for('static', filename='bridgecraft.svg') }}" alt="" width="300" height="300" />
               <span class="flip-face flip-back" aria-hidden="true">
+                <img class="flip-mark" src="{{ url_for('static', filename='app-icons/artcraft.svg') }}" alt="" width="64" height="54" />
                 <span class="label">Built for</span>
                 <span class="flip-name">ArtCraft</span>
-                <span class="flip-sub">&amp; the Craft apps</span>
-                <span class="flip-note">Community-built · not official</span>
+                <span class="flip-note">Community-built · not affiliated</span>
               </span>
             </span>
           </button>
@@ -99,23 +99,13 @@
       <section class="section" id="what">
         <header class="section-head">
           <p class="label">01 / What it is</p>
-          <h2>A bridge, not a <em>replacement.</em></h2>
+          <h2>An extension for the <em>ArtCraft apps.</em></h2>
           <p>
-            ArtCraft brings the Craft apps together for you at your desk. BridgeCraft brings
-            the same apps to your AI assistant, so you can ask for the work in a chat.
+            BridgeCraft extends Storytold's open-source Craft apps, the ones ArtCraft brings
+            together, into ChatGPT, Claude and other AI assistants. They are the same apps,
+            run as they are: you ask in a chat, and your assistant uses them for you.
           </p>
         </header>
-        <table class="compare">
-          <thead>
-            <tr><th scope="col"><span class="sr-only">Question</span></th><th scope="col">ArtCraft</th><th scope="col">BridgeCraft</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Who uses it</th><td>You, in a desktop app</td><td>Your AI assistant, on your behalf</td></tr>
-            <tr><th scope="row">How you work</th><td>You open the apps and click through them</td><td>You ask in a chat and the assistant runs the apps</td></tr>
-            <tr><th scope="row">Install</th><td>Download the app</td><td>Nothing; paste one address into your assistant</td></tr>
-            <tr><th scope="row">Made by</th><td>Storytold</td><td>The community, built to be handed to Storytold</td></tr>
-          </tbody>
-        </table>
         <p class="status">
           <span class="label">Status</span>
           <span>

@@ -12,8 +12,9 @@ xAI API), and Kimi:
   tern whose wings arch into a bridge, drawn in VectorCraft by `design/draw_logo.py`). The
   ArtCraft name, wordmark and logos are trademarks of the ArtCraft Team and are not open
   source. BridgeCraft never uses them as its own branding: the name appears in plain text
-  to say what BridgeCraft works with, and the unmodified ArtCraft logo appears only on the
-  catalog card that links to ArtCraft's repository. The other cards show each Craft app's
+  to say what BridgeCraft works with. The unmodified ArtCraft logo appears on the catalog
+  card that links to ArtCraft's repository and on the back of the homepage tern, beside
+  "Built for ArtCraft · community-built · not affiliated". The other cards show each Craft app's
   own icon, which is licensed like its code.
 - **ArtCraft apps and projects**: list, search, and read public Storytold
   repositories, including the Craft creative-app projects.
@@ -36,16 +37,9 @@ their official MCP interfaces provide a verified workspace boundary.
 
 ## What BridgeCraft is
 
-ArtCraft brings Storytold's Craft apps together for a person at a desktop.
-BridgeCraft brings the same apps to an AI assistant, so you can ask for the work
-in a chat.
-
-| | ArtCraft | BridgeCraft |
-|---|---|---|
-| Who uses it | You, in a desktop app | Your AI assistant, on your behalf |
-| How you work | You open the apps and click through them | You ask in a chat and the assistant runs the apps |
-| Install | Download the app | Nothing; paste one address into your assistant |
-| Made by | Storytold | The community, built to be handed to Storytold |
+BridgeCraft extends Storytold's open-source Craft apps, the ones ArtCraft brings
+together, into ChatGPT, Claude and other AI assistants. They are the same apps,
+run as they are: you ask in a chat, and your assistant uses them for you.
 
 **Status:** community-built and run by Adithya Shankaran. It is not an official
 Storytold or ArtCraft product. We have proposed that Storytold adopt it in
