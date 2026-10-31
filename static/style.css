@@ -240,6 +240,10 @@ h2 em {
   text-transform: uppercase;
 }
 
+.nav-links a {
+  white-space: nowrap;
+}
+
 .nav-links a:hover {
   text-decoration: underline;
   text-underline-offset: 5px;
@@ -1016,13 +1020,13 @@ h2 em {
     --gutter: 40px;
   }
 
-  .hero,
-  .split {
-    grid-template-columns: 1fr;
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+    gap: 40px;
   }
 
-  .plate {
-    width: min(100%, 520px);
+  .split {
+    grid-template-columns: 1fr;
   }
 
   .app-grid {
@@ -1031,6 +1035,39 @@ h2 em {
 
   .repo-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Too narrow for every nav link on one line; the sections are a scroll away. */
+@media (max-width: 960px) {
+  .nav-links {
+    visibility: hidden;
+  }
+}
+
+/* One column: centre the hero so the plate does not hang off to the left. */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    text-align: center;
+  }
+
+  .hero-copy {
+    justify-items: center;
+  }
+
+  .hero h1 {
+    max-width: 12ch;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .plate {
+    justify-self: center;
+    width: min(100%, 520px);
   }
 }
 
