@@ -346,12 +346,15 @@ h2 em {
   text-wrap: balance;
 }
 
-/* The AI apps it works with, in grey under the headline, split by centre dots. */
+/* The AI apps it works with, in grey under the headline, split by centre dots.
+   Every name has a dot in front; the row is pulled left by one dot's width and
+   that strip is clipped, so no line, first or wrapped, starts with a dot. */
 .ai-apps {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 0;
-  margin-top: -6px;
+  margin: -6px 0 0 -1.8em;
+  clip-path: inset(0 0 0 1.8em);
   color: var(--muted);
   font-family: var(--mono);
   font-size: 13px;
@@ -360,20 +363,18 @@ h2 em {
   text-transform: uppercase;
 }
 
-.ai-apps span + span::before {
+.ai-apps span::before {
   content: "\00b7";
-  margin: 0 0.7em;
+  display: inline-block;
+  width: 1.8em;
+  text-align: center;
 }
 
-/* Tighter on phones, so the row stays on one line instead of wrapping onto a dot. */
+/* Tighter on phones, so the row stays on one line. */
 @media (max-width: 480px) {
   .ai-apps {
     font-size: 11px;
     letter-spacing: 0.03em;
-  }
-
-  .ai-apps span + span::before {
-    margin: 0 0.45em;
   }
 }
 
