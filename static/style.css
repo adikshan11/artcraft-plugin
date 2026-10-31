@@ -365,8 +365,6 @@ h2 em {
   justify-items: center;
   gap: 4cqi;
   padding: 8cqi;
-  border: 1px solid #111110;
-  border-bottom: 0;
   background: var(--accent);
   color: #111110;
   text-align: center;
