@@ -176,11 +176,13 @@ class McpServerTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(manifest["version"], server["version"])
         servers = json.loads((plugin_dir / ".mcp.json").read_text())["mcpServers"]
         self.assertEqual(servers, {"bridgecraft": {"type": "http", "url": studio_url}})
+        # Anthropic's directory needs a README of 40 words or more and a license in the plugin folder.
+        self.assertGreaterEqual(len((plugin_dir / "README.md").read_text().split()), 40)
+        self.assertEqual(manifest["license"], "Apache-2.0")
 
     def test_homepage_offers_installs_for_other_apps(self):
         page = self.client.get("/").get_data(as_text=True)
-        self.assertIn("claude plugin marketplace add adikshan11/artcraft-plugin", page)
-        self.assertIn("claude plugin install bridgecraft@bridgecraft", page)
+        self.assertIn("claude plugin install bridgecraft --marketplace adikshan11/artcraft-plugin", page)
         link = page.split('href="cursor://anysphere.cursor-deeplink/mcp/install?', 1)[1].split('"', 1)[0]
         name, config = (part.split("=", 1)[1] for part in link.split("&amp;"))
         self.assertEqual(name, "bridgecraft")

@@ -649,15 +649,17 @@ Every app below connects to the same hosted address,
 the first time.
 
 - **Claude Code**, from this repository's plugin marketplace
-  ([`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json)):
+  ([`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json)), in
+  one command:
 
   ```bash
-  claude plugin marketplace add adikshan11/artcraft-plugin
-  claude plugin install bridgecraft@bridgecraft
+  claude plugin install bridgecraft --marketplace adikshan11/artcraft-plugin
   ```
 
-  Without the marketplace:
-  `claude mcp add --transport http bridgecraft https://artcraft-storytold-mcp.onrender.com/studio`.
+  Inside a session, `/plugin install bridgecraft --marketplace adikshan11/artcraft-plugin`
+  does the same. Older Claude Code versions need two steps:
+  `claude plugin marketplace add adikshan11/artcraft-plugin`, then
+  `claude plugin install bridgecraft@bridgecraft`.
 - **Cursor:** the "Add to Cursor" link on the website's setup section, or add
   `{"url": "https://artcraft-storytold-mcp.onrender.com/studio"}` under
   `mcpServers.bridgecraft` in `~/.cursor/mcp.json`.
@@ -668,8 +670,8 @@ the first time.
   ```
 
 - **Claude and ChatGPT (web, desktop and phone):** add a custom connector with
-  the address, as on the website. They show it in their own directories only
-  after the submissions below are approved.
+  the address, as on the website. Once the directory submissions below are
+  approved, people can search for BridgeCraft there instead.
 
 ### Publishing publicly
 
@@ -683,9 +685,14 @@ are not done by the code in this repository.
    this folder run `mcp-publisher login github` and `mcp-publisher publish`.
    GitHub sign-in proves ownership of the `io.github.adikshan11/` name. Raise
    `version` in `server.json` before each later publish.
-2. **Claude connectors directory:** submit the `/studio` address with the
-   privacy policy, terms, support page, icon, and a test account through
-   Anthropic's connector directory submission form.
+2. **Anthropic's directory** ([claude.ai/directory](https://claude.ai/directory)):
+   submit the `plugins/bridgecraft` plugin and the `/studio` server as a
+   connector from the developer portal at
+   [claude.ai/directory/manage](https://claude.ai/directory/manage). It needs a
+   paid claude.ai plan, the privacy policy, terms, support page, icon and a test
+   account. Once approved, people find it by searching on claude.ai, in the
+   desktop app and in Cowork, and Claude Code loads it for them as
+   `bridgecraft@synced`.
 3. **ChatGPT apps directory:** the listing's **Website**, icon, and "Developer
    mode" label come from the app submission, not from this server. Submit the
    `/studio` URL through the OpenAI Platform's app submission flow with a
