@@ -31,4 +31,4 @@ Live status: https://bridgecraft.onrender.com/status
 
 ## License
 
-Apache-2.0. The source is at https://github.com/adikshan11/artcraft-plugin.
+Apache-2.0. The source is at https://github.com/adikshan11/bridgecraft.
