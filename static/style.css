@@ -302,6 +302,7 @@ h2 em {
   content: "";
   position: absolute;
   inset: auto 0 13% 0;
+  z-index: 2;
   border-top: 1px solid #111110;
 }
 
