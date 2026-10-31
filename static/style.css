@@ -319,6 +319,7 @@ h2 em {
   cursor: pointer;
   perspective: 1200px;
   container-type: inline-size;
+  z-index: 1;
 }
 
 .flip:focus-visible {
@@ -364,14 +365,16 @@ h2 em {
   justify-items: center;
   gap: 4cqi;
   padding: 8cqi;
-  background: #f6f1e7;
+  border: 1px solid #111110;
+  border-bottom: 0;
+  background: var(--accent);
   color: #111110;
   text-align: center;
   transform: rotateY(180deg);
 }
 
 .flip-back .label {
-  color: #5f5a50;
+  color: #111110;
   font-size: max(10px, 4cqi);
 }
 
@@ -390,21 +393,21 @@ h2 em {
   height: auto;
   margin-bottom: 2cqi;
   padding: 6cqi 5cqi;
-  border: 1px solid #d9cfbc;
+  border: 1px solid #111110;
   border-radius: 6cqi;
   background: #ffffff;
-  box-shadow: 0 2cqi 5cqi rgba(17, 17, 16, 0.1);
+  box-shadow: 1.5cqi 1.5cqi 0 #111110;
 }
 
 .flip-note {
   margin-top: 4cqi;
   padding-top: 4cqi;
-  border-top: 1px solid #d9cfbc;
+  border-top: 1px solid #111110;
   font-family: var(--mono);
   font-size: max(9px, 3.6cqi);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #5f5a50;
+  color: #3d3624;
 }
 
 .plate figcaption {
@@ -432,6 +435,7 @@ h2 em {
   left: calc(50% + cos(var(--a)) * var(--r) - var(--size) / 2);
   top: calc(57% - sin(var(--a)) * var(--r) - var(--size) / 2);
   width: var(--size);
+  z-index: 2;
   animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   animation-delay: calc(var(--i) * 60ms);
 }
