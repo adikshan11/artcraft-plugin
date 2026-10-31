@@ -34,6 +34,7 @@
           <span>BridgeCraft</span>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
+          <a href="#what">What it is</a>
           <a href="#apps">Apps</a>
           <a href="#how">How it works</a>
           <a href="#privacy">Privacy</a>
@@ -68,7 +69,17 @@
             </li>
             {% endfor %}
           </ul>
-          <img class="plate-logo" src="{{ url_for('static', filename='bridgecraft.svg') }}" alt="BridgeCraft logo: an Arctic tern whose wings arch over the water" width="300" height="300" />
+          <button class="flip" type="button" aria-pressed="false" aria-label="BridgeCraft logo, an Arctic tern whose wings arch over the water. Flip it to see what BridgeCraft is built for.">
+            <span class="flip-inner">
+              <img class="flip-face" src="{{ url_for('static', filename='bridgecraft.svg') }}" alt="" width="300" height="300" />
+              <span class="flip-face flip-back" aria-hidden="true">
+                <span class="label">Built for</span>
+                <span class="flip-name">ArtCraft</span>
+                <span class="flip-sub">&amp; the Craft apps</span>
+                <span class="flip-note">Community-built · not official</span>
+              </span>
+            </span>
+          </button>
           <figcaption>Fig. 1 — Arctic tern, bridging the gap</figcaption>
         </figure>
       </section>
@@ -85,9 +96,39 @@
         </div>
       </div>
 
+      <section class="section" id="what">
+        <header class="section-head">
+          <p class="label">01 / What it is</p>
+          <h2>A bridge, not a <em>replacement.</em></h2>
+          <p>
+            ArtCraft brings the Craft apps together for you at your desk. BridgeCraft brings
+            the same apps to your AI assistant, so you can ask for the work in a chat.
+          </p>
+        </header>
+        <table class="compare">
+          <thead>
+            <tr><th scope="col"><span class="sr-only">Question</span></th><th scope="col">ArtCraft</th><th scope="col">BridgeCraft</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Who uses it</th><td>You, in a desktop app</td><td>Your AI assistant, on your behalf</td></tr>
+            <tr><th scope="row">How you work</th><td>You open the apps and click through them</td><td>You ask in a chat and the assistant runs the apps</td></tr>
+            <tr><th scope="row">Install</th><td>Download the app</td><td>Nothing; paste one address into your assistant</td></tr>
+            <tr><th scope="row">Made by</th><td>Storytold</td><td>The community, built to be handed to Storytold</td></tr>
+          </tbody>
+        </table>
+        <p class="status">
+          <span class="label">Status</span>
+          <span>
+            BridgeCraft is community-built and run by Adithya Shankaran. It is not an official
+            Storytold or ArtCraft product. We have proposed that Storytold adopt it;
+            follow along in <a href="https://github.com/storytold/craft-contrib/pull/23" target="_blank" rel="noopener noreferrer">RFC-0016</a>.
+          </span>
+        </p>
+      </section>
+
       <section class="section" id="apps">
         <header class="section-head">
-          <p class="label">01 / Hosted Craft apps</p>
+          <p class="label">02 / Hosted Craft apps</p>
           {% set count_words = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"] %}
           <h2>{{ count_words[hosted_apps|length] if hosted_apps|length < 13 else hosted_apps|length }} Craft apps. One <em>bridge.</em></h2>
           <p>Each one runs on our server, locked to a private folder that holds only your files.</p>
@@ -116,7 +157,7 @@
       <section class="section" id="how">
         <div class="split">
           <div class="split-copy">
-            <p class="label">02 / How it works</p>
+            <p class="label">03 / How it works</p>
             <h2>Just <em>ask.</em></h2>
             <p class="section-lede">
               Your assistant picks the right tool, runs it on your file and hands back the
@@ -146,7 +187,7 @@
 
       <section class="section">
         <header class="section-head">
-          <p class="label">03 / Built-in tools</p>
+          <p class="label">04 / Built-in tools</p>
           <h2>And the <em>everyday</em> edits.</h2>
           <p>Built-in tools for the jobs that come up every day.</p>
         </header>
@@ -171,7 +212,7 @@
 
       <section class="section section-dark" id="privacy">
         <header class="section-head">
-          <p class="label">04 / Privacy</p>
+          <p class="label">05 / Privacy</p>
           <h2>Your files stay <em>yours.</em></h2>
           <p>You sign in once, and the tools only ever see your own files.</p>
         </header>
@@ -186,7 +227,7 @@
       <section class="section" id="open-source">
         <header class="section-head section-head-row">
           <div>
-            <p class="label">05 / Open source</p>
+            <p class="label">06 / Open source</p>
             <h2>Built on <em>open source.</em></h2>
             <p>ArtCraft and the Craft apps are Storytold's public projects. BridgeCraft is open source too.</p>
           </div>
@@ -216,7 +257,7 @@
 
       <section class="section section-accent" id="connect">
         <header class="section-head">
-          <p class="label">06 / Connect</p>
+          <p class="label">07 / Connect</p>
           <h2>Add it once. Use it <em>everywhere.</em></h2>
         </header>
         <ol class="columns steps">
@@ -259,6 +300,11 @@
     </footer>
 
     <script>
+      const flip = document.querySelector(".flip");
+      flip.addEventListener("click", () => {
+        flip.setAttribute("aria-pressed", String(flip.getAttribute("aria-pressed") !== "true"));
+      });
+
       for (const button of document.querySelectorAll("[data-copy]")) {
         button.addEventListener("click", async () => {
           const text = document.getElementById(button.dataset.copy).textContent.trim();

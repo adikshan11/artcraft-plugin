@@ -112,6 +112,11 @@ class McpServerTests(unittest.IsolatedAsyncioTestCase):
         self.assertNotIn(b"ONE ARTCRAFT APP", response.data)
         self.assertIn(b"/static/bridgecraft.svg", response.data)
         self.assertIn(b"/static/og.jpg", response.data)
+        # The page says plainly what BridgeCraft is and that it is not official.
+        self.assertIn(b"A bridge, not a <em>replacement.</em>", response.data)
+        self.assertIn(b"It is not an official\n            Storytold or ArtCraft product.", response.data)
+        self.assertIn(b"https://github.com/storytold/craft-contrib/pull/23", response.data)
+        self.assertIn(b'class="flip"', response.data)
         self.assertNotIn(b"artcraft-icon.svg", response.data)
         self.assertIn(
             f'href="{ARTCRAFT_PRODUCT_URL}"'.encode(),

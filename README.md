@@ -34,6 +34,24 @@ PhotoCraft's generic native-tool proxy is treated as write-capable. VectorCraft
 and the remaining video, audio, and 3D app operations are not exposed until
 their official MCP interfaces provide a verified workspace boundary.
 
+## What BridgeCraft is
+
+ArtCraft brings Storytold's Craft apps together for a person at a desktop.
+BridgeCraft brings the same apps to an AI assistant, so you can ask for the work
+in a chat.
+
+| | ArtCraft | BridgeCraft |
+|---|---|---|
+| Who uses it | You, in a desktop app | Your AI assistant, on your behalf |
+| How you work | You open the apps and click through them | You ask in a chat and the assistant runs the apps |
+| Install | Download the app | Nothing; paste one address into your assistant |
+| Made by | Storytold | The community, built to be handed to Storytold |
+
+**Status:** community-built and run by Adithya Shankaran. It is not an official
+Storytold or ArtCraft product. We have proposed that Storytold adopt it in
+[RFC-0016](https://github.com/storytold/craft-contrib/pull/23); until they do,
+it must not be presented as part of ArtCraft.
+
 ## Image-generation prerequisites
 
 ArtCraft API keys are enabled per account. In
